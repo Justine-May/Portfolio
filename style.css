@@ -3,21 +3,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif; /* Standard modern font */
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: #000; /* Matching your black background */
+    background-color: #000;
     color: white;
+    overflow-x: hidden; 
 }
 
-/* Navbar Layout */
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background-color: #000;
 }
 
 .logo {
@@ -28,11 +28,8 @@ body {
     gap: 10px;
 }
 
-.star {
-    color: #FFD700; /* The yellow star color */
-}
+.star { color: #FFD700; }
 
-/* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
@@ -42,25 +39,142 @@ body {
 .nav-links a {
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #FFD700;
-}
+.nav-links a:hover { color: #FFD700; }
 
-/* Yellow Button */
 .btn-contact {
-    background-color: #F8D351; /* Matching the yellow in your image */
+    background-color: #F8D351;
     color: #000;
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
 }
 
-.btn-contact:hover {
-    background-color: #fff;
+/* Hero Section */
+.hero {
+    padding: 40px 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-card {
+    background-color: #4B7D6E;
+    width: 100%;
+    max-width: 1200px;
+    height: 550px; 
+    border-radius: 40px;
+    position: relative;
+    display: flex;
+    align-items: flex-end; 
+    overflow: visible; 
+}
+
+/* 1. Image Layer (Left Side) */
+.profile-img-wrapper {
+    position: relative;
+    z-index: 5; 
+    margin-left: 5%;
+    pointer-events: none; /* Allows clicks to pass through to the button if they overlap */
+    right: -3%;
+}
+
+.profile-img {
+    height: 550px; 
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* 2. Text Stack Layer (Right Side) */
+.bg-text-container {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2; 
+    text-align: right; 
+    display: flex;
+    flex-direction: column;
+    /* Added min-width to give the button a consistent 'center' to calculate from */
+    min-width: 600px; 
+}
+
+.main-title, 
+.outline-text {
+    font-size: 100px; 
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.85;
+    margin: 0;
+}
+
+.main-title { 
+    color: #FFFFFF; 
+}
+
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 2px #FFD351;
+}
+
+/* 3. Button Layer - REVISED FOR BOTTOM-MID */
+.button-overlay {
+    position: absolute;
+    /* Moves the button to the bottom area of the text container */
+    top: 400px;         
+    /* Centers it horizontally relative to the text container */
+    left: 50%;        
+    /* Offset by 50% of its own width/height to center precisely on the point */
+    transform: translate(-50%, -50%); 
+    z-index: 10;      
+}
+
+.hero-btn { text-decoration: none; }
+
+.yellow-base {
+    background-color: #FFD351;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: 50px;
+    gap: 12px;
+    transition: transform 0.2s ease;
+}
+
+.circle-arrow {
+    background-color: white;
+    color: #333;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.green-pill {
+    background-color: #447B6D;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.yellow-base:hover { transform: scale(1.05); }
+
+/* Subtitles */
+.hero-subtitles {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 30px;
+    padding-left: 20px;
+    font-size: 18px;
+    color: #ccc;
+    text-align: left;
 }
